@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://co8r0pfhw4t5h"]
 
 [ext_resource type="Script" uid="uid://crnqcob1rfhfr" path="res://scripts/interactive/dialogue_label.gd" id="1_wlk8o"]
+[ext_resource type="FontFile" uid="uid://dsgtflrtexn2s" path="res://PixelifySans-Medium.ttf" id="1_ydopt"]
 
 [node name="InterfaceScene" type="Control" unique_id=1767213804]
 layout_mode = 3
@@ -23,4 +24,5 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="CenterContainer" unique_id=400275363]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ydopt")
 script = ExtResource("1_wlk8o")
