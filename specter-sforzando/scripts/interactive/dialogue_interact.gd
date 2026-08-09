@@ -13,7 +13,8 @@ var lines_counter: int:
 	
 func trigger() -> void:
 	if lines_counter >= lines_length:
+		Interface.trigger_dialogue.emit(" ")
 		has_interacted.emit()
 	else:
-		print(lines)
+		Interface.trigger_dialogue.emit(lines)
 		lines_counter += 1

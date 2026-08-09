@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c4youp2mil0vk" path="res://scripts/interactive/interact.gd" id="2_wutsx"]
 [ext_resource type="Script" uid="uid://dmg287wk1lkrw" path="res://scripts/interactive/dialogue_interact.gd" id="3_qhdf8"]
 [ext_resource type="Script" uid="uid://coi4snnhgmgv3" path="res://scripts/interactive/interaction.gd" id="4_hd1gn"]
+[ext_resource type="PackedScene" uid="uid://co8r0pfhw4t5h" path="res://scenes/interface_scene.tscn" id="5_qhdf8"]
 
 [sub_resource type="Resource" id="Resource_wutsx"]
 script = ExtResource("3_qhdf8")
@@ -23,3 +24,10 @@ metadata/_custom_type_script = "uid://coi4snnhgmgv3"
 [node name="TestInterfaceScene" type="Node2D" unique_id=371029963]
 script = ExtResource("1_vt6do")
 interaction = SubResource("Resource_n08qm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1756246519]
+
+[node name="InterfaceScene" parent="CanvasLayer" unique_id=1767213804 instance=ExtResource("5_qhdf8")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1492129629]
+zoom = Vector2(4, 4)

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://co8r0pfhw4t5h"]
+
+[ext_resource type="Script" uid="uid://crnqcob1rfhfr" path="res://scripts/interactive/dialogue_label.gd" id="1_wlk8o"]
+
+[node name="InterfaceScene" type="Control" unique_id=1767213804]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=573346413]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 108.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=400275363]
+layout_mode = 2
+script = ExtResource("1_wlk8o")
