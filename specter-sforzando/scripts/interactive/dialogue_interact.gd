@@ -1,16 +1,19 @@
 class_name DialogueInteract extends Interact
 
-@export var lines: Array[String]
+# NOTE
+# turned this into a singular dialogue option
+# designed to make inline effects a little easier
+# can be converted back into an array instead at anytime
 
+@export var lines: String
 var lines_length: int:
-	get: return len(lines)
+	get: return 1
 var lines_counter: int:
-	get: return min(lines_counter, lines_length)
+	get: return min(lines_length, lines_counter)
 	
 func trigger() -> void:
-	print(lines_counter, lines_length)
 	if lines_counter >= lines_length:
 		has_interacted.emit()
 	else:
-		print(lines[lines_counter])
+		print(lines)
 		lines_counter += 1

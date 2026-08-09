@@ -5,19 +5,19 @@
 [ext_resource type="Script" uid="uid://dmg287wk1lkrw" path="res://scripts/interactive/dialogue_interact.gd" id="3_qhdf8"]
 [ext_resource type="Script" uid="uid://coi4snnhgmgv3" path="res://scripts/interactive/interaction.gd" id="4_hd1gn"]
 
-[sub_resource type="Resource" id="Resource_mcdj7"]
-script = ExtResource("3_qhdf8")
-lines = Array[String](["Hello there", "This is a really cool message"])
-metadata/_custom_type_script = "uid://dmg287wk1lkrw"
-
 [sub_resource type="Resource" id="Resource_wutsx"]
 script = ExtResource("3_qhdf8")
-lines = Array[String](["Like really..."])
+lines = "Hello there"
+metadata/_custom_type_script = "uid://dmg287wk1lkrw"
+
+[sub_resource type="Resource" id="Resource_qhdf8"]
+script = ExtResource("3_qhdf8")
+lines = "This is an interesting interaction"
 metadata/_custom_type_script = "uid://dmg287wk1lkrw"
 
 [sub_resource type="Resource" id="Resource_n08qm"]
 script = ExtResource("4_hd1gn")
-manuscript = Array[ExtResource("2_wutsx")]([SubResource("Resource_mcdj7"), SubResource("Resource_wutsx")])
+manuscript = Array[ExtResource("2_wutsx")]([SubResource("Resource_wutsx"), SubResource("Resource_qhdf8")])
 metadata/_custom_type_script = "uid://coi4snnhgmgv3"
 
 [node name="TestInterfaceScene" type="Node2D" unique_id=371029963]
