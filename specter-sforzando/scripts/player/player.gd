@@ -20,9 +20,10 @@ var move_state: MoveState
 var in_air_state: InAirState
 var jump_state: JumpState
 
-enum { HORIZONTAL_VELOCITY = 75, VERTICAL_VELOCITY = 120 }
+enum { HORIZONTAL_VELOCITY = 70, VERTICAL_VELOCITY = 110 }
 var horizontal_input: float
 var vertical_input: bool
+var vertical_input_released: bool
 
 func _ready() -> void:
 	idle_state = get_state("FiniteStateMachine/IdleState", "idle") as IdleState
@@ -34,6 +35,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	horizontal_input = Input.get_axis("ui_left", "ui_right")
 	vertical_input = Input.is_action_just_pressed("ui_accept")
+	vertical_input_released = Input.is_action_just_released("ui_accept")
 	
 	current_state.physics_update(_delta)
 	move_and_slide()
