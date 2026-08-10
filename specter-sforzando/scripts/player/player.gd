@@ -11,6 +11,7 @@ func transition_state(_transiting_state: State) -> void:
 var current_state: State
 var idle_state: IdleState
 var move_state: MoveState
+var in_air_state: InAirState
 
 var horizontal_input: float
 
@@ -19,6 +20,8 @@ func _ready() -> void:
 	idle_state.engage(self, "idle")
 	move_state = get_node_or_null("FiniteStateMachine/MoveState")
 	move_state.engage(self, "move")
+	in_air_state = get_node_or_null("FiniteStateMachine/InAirState")
+	in_air_state.engage(self, "in air")
 	transition_state(idle_state)
 
 func _physics_process(_delta: float) -> void:

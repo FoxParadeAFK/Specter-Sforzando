@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bxkry2svf1k24" path="res://scripts/player/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://b6aa5bsmmqtev" path="res://scripts/player/idle_state.gd" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://c8d3tvcih1a6d" path="res://scripts/player/move_state.gd" id="3_dqkch"]
+[ext_resource type="Script" uid="uid://cftbrqteor10o" path="res://scripts/player/in_air_state.gd" id="4_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(8, 8)
@@ -20,6 +21,10 @@ metadata/_custom_type_script = "uid://b6aa5bsmmqtev"
 [node name="MoveState" type="Node2D" parent="FiniteStateMachine" unique_id=934989131]
 script = ExtResource("3_dqkch")
 metadata/_custom_type_script = "uid://c8d3tvcih1a6d"
+
+[node name="InAirState" type="Node2D" parent="FiniteStateMachine" unique_id=1131267886]
+script = ExtResource("4_qlg0r")
+metadata/_custom_type_script = "uid://cftbrqteor10o"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459584434]
 scale = Vector2(0.0625, 0.0625)
