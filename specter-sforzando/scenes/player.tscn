@@ -2,12 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://bou4hgyqcrli8" path="res://icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bxkry2svf1k24" path="res://scripts/player/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://b6aa5bsmmqtev" path="res://scripts/player/idle_state.gd" id="2_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(8, 8)
 
 [node name="Player" type="CharacterBody2D" unique_id=244991710]
 script = ExtResource("1_g2els")
+
+[node name="FiniteStateMachine" type="Node2D" parent="." unique_id=1909763173]
+
+[node name="IdleState" type="Node2D" parent="FiniteStateMachine" unique_id=2111121511]
+script = ExtResource("2_qhqgy")
+metadata/_custom_type_script = "uid://b6aa5bsmmqtev"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459584434]
 scale = Vector2(0.0625, 0.0625)
