@@ -27,6 +27,7 @@ window/size/viewport_height=360
 [physics]
 
 3d/physics_engine="Jolt Physics"
+2d/default_gravity=600.0
 
 [rendering]
 

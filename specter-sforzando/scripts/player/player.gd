@@ -12,8 +12,10 @@ var current_state: State
 var idle_state: IdleState
 var move_state: MoveState
 var in_air_state: InAirState
+var jump_state: JumpState
 
 var horizontal_input: float
+var vertical_input: bool
 
 func _ready() -> void:
 	idle_state = get_node_or_null("FiniteStateMachine/IdleState")
@@ -22,10 +24,13 @@ func _ready() -> void:
 	move_state.engage(self, "move")
 	in_air_state = get_node_or_null("FiniteStateMachine/InAirState")
 	in_air_state.engage(self, "in air")
+	jump_state = get_node_or_null("FiniteStateMachine/JumpState")
+	jump_state.engage(self, "jump")
 	transition_state(idle_state)
 
 func _physics_process(_delta: float) -> void:
 	horizontal_input = Input.get_axis("ui_left", "ui_right")
+	vertical_input = Input.is_action_just_pressed("ui_accept")
 	
 	current_state.physics_update(_delta)
 	move_and_slide()

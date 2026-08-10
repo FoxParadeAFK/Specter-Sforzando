@@ -4,6 +4,7 @@ func enter() -> void: pass
 
 func physics_update(_delta: float) -> void:
 	player.velocity += player.get_gravity() * _delta
+	player.velocity.x = player.horizontal_input * 100
 	
 	if player.is_on_floor() and player.horizontal_input != 0:
 		player.transition_state(player.move_state)
