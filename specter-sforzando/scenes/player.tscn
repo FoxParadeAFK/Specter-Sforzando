@@ -34,7 +34,13 @@ metadata/_custom_type_script = "uid://0k8y1v5kqoj5"
 [node name="Timer" type="Node2D" parent="." unique_id=573314504]
 
 [node name="CoyoteJumpTimer" type="Timer" parent="Timer" unique_id=1181730258]
+process_callback = 0
 wait_time = 0.1
+one_shot = true
+
+[node name="VerticalInputTimer" type="Timer" parent="Timer" unique_id=1693604689]
+process_callback = 0
+wait_time = 0.15
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459584434]

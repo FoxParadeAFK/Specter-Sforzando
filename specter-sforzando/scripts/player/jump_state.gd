@@ -5,6 +5,9 @@ var has_jumped: bool
 func enter() -> void:
 	has_jumped = false
 	
+	player.vertical_input = false
+	player.vertical_input_timer.stop()
+	
 	player.velocity.y = -player.VERTICAL_VELOCITY
 	player.jump_count -= 1
 	
