@@ -29,6 +29,8 @@ var horizontal_input: float
 var vertical_input: bool
 var vertical_input_released: bool
 
+var coyote_jump_timer: Timer
+
 func _ready() -> void:
 	idle_state = get_state("FiniteStateMachine/IdleState", "idle") as IdleState
 	move_state = get_state("FiniteStateMachine/MoveState", "move") as MoveState
@@ -36,10 +38,12 @@ func _ready() -> void:
 	jump_state = get_state("FiniteStateMachine/JumpState", "jump") as JumpState
 	transition_state(idle_state)
 
+	coyote_jump_timer = get_node_or_null("Timer/CoyoteJumpTimer")
+
 func _physics_process(_delta: float) -> void:
-	horizontal_input = Input.get_axis("ui_left", "ui_right")
-	vertical_input = Input.is_action_just_pressed("ui_accept")
-	vertical_input_released = Input.is_action_just_released("ui_accept")
+	horizontal_input = Input.get_axis("move_left", "move_right")
+	vertical_input = Input.is_action_just_pressed("jump")
+	vertical_input_released = Input.is_action_just_released("jump")
 	
 	current_state.physics_update(_delta)
 	move_and_slide()

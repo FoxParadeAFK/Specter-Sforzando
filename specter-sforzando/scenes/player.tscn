@@ -31,6 +31,12 @@ metadata/_custom_type_script = "uid://cftbrqteor10o"
 script = ExtResource("5_tuyoq")
 metadata/_custom_type_script = "uid://0k8y1v5kqoj5"
 
+[node name="Timer" type="Node2D" parent="." unique_id=573314504]
+
+[node name="CoyoteJumpTimer" type="Timer" parent="Timer" unique_id=1181730258]
+wait_time = 0.1
+one_shot = true
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459584434]
 scale = Vector2(0.0625, 0.0625)
 texture = ExtResource("1_3vyb7")

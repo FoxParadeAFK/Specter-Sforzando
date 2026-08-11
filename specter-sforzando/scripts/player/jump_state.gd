@@ -6,6 +6,7 @@ func enter() -> void:
 	has_jumped = false
 	
 	player.velocity.y = -player.VERTICAL_VELOCITY
+	player.jump_count -= 1
 	
 	has_jumped = true
 
