@@ -2,6 +2,7 @@ class_name InAirState extends State
 
 const HOVER_VELOCITY_THRESHOLD: int = 30
 const HOVER_VELOCITY_PERCENTAGE: float = 0.3
+const VARIABLE_JUMP_VELOCITY_REDUCTION_PERCENTAGE: float = 0.65
 
 func enter() -> void:
 	if player.jump_count == player.MAXIMUM_JUMP_COUNT:
@@ -12,7 +13,7 @@ func physics_update(_delta: float) -> void:
 	if sign(player.velocity.y) == -1 and player.velocity.y >= -HOVER_VELOCITY_THRESHOLD:
 		gravity *= HOVER_VELOCITY_PERCENTAGE
 	elif sign(player.velocity.y) == -1 and player.vertical_input_released:
-		player.velocity *= 0.65
+		player.velocity *= VARIABLE_JUMP_VELOCITY_REDUCTION_PERCENTAGE
 		player.vertical_input_released = false
 		player.vertical_input_released_timer.stop()
 		

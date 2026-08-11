@@ -56,8 +56,6 @@ func _physics_process(_delta: float) -> void:
 	current_state.physics_update(_delta)
 	move_and_slide()
 	
-	print(vertical_input_released)
-	
 func hold_vertical_input(_vertical_input: bool) -> void:
 	if not _vertical_input or vertical_input_timer.time_left != 0: return
 	
