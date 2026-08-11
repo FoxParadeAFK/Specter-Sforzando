@@ -21,6 +21,10 @@ var in_air_state: InAirState
 var jump_state: JumpState
 
 enum { HORIZONTAL_VELOCITY = 70, VERTICAL_VELOCITY = 110 }
+enum { MAXIMUM_JUMP_COUNT = 1 }
+var jump_count: int:
+	get: return min(jump_count, MAXIMUM_JUMP_COUNT)
+func can_jump() -> bool: return jump_count > 0
 var horizontal_input: float
 var vertical_input: bool
 var vertical_input_released: bool
