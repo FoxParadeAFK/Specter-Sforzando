@@ -13,6 +13,8 @@ func physics_update(_delta: float) -> void:
 		gravity *= HOVER_VELOCITY_PERCENTAGE
 	elif sign(player.velocity.y) == -1 and player.vertical_input_released:
 		player.velocity *= 0.65
+		player.vertical_input_released = false
+		player.vertical_input_released_timer.stop()
 		
 	player.velocity += gravity * _delta
 	player.velocity.x = player.horizontal_input * player.HORIZONTAL_VELOCITY

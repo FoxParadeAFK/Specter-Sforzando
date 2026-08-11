@@ -31,6 +31,7 @@ var vertical_input_released: bool
 
 var coyote_jump_timer: Timer
 var vertical_input_timer: Timer
+var vertical_input_released_timer: Timer
 
 func _ready() -> void:
 	idle_state = get_state("FiniteStateMachine/IdleState", "idle") as IdleState
@@ -40,18 +41,31 @@ func _ready() -> void:
 	transition_state(idle_state)
 
 	coyote_jump_timer = get_node_or_null("Timer/CoyoteJumpTimer")
+	
 	vertical_input_timer = get_node_or_null("Timer/VerticalInputTimer")
+	vertical_input_released_timer = get_node_or_null("Timer/VerticalInputReleasedTimer")
+	
+	vertical_input_timer.timeout.connect(func() -> void: vertical_input = false)
+	vertical_input_released_timer.timeout.connect(func() -> void: vertical_input_released = false)
 
 func _physics_process(_delta: float) -> void:
 	horizontal_input = Input.get_axis("move_left", "move_right")
 	hold_vertical_input(Input.is_action_just_pressed("jump"))
-	vertical_input_released = Input.is_action_just_released("jump")
+	hold_vertical_input_released(Input.is_action_just_released("jump"))
 	
 	current_state.physics_update(_delta)
 	move_and_slide()
+	
+	print(vertical_input_released)
 	
 func hold_vertical_input(_vertical_input: bool) -> void:
 	if not _vertical_input or vertical_input_timer.time_left != 0: return
 	
 	vertical_input_timer.start()
 	vertical_input = true
+	
+func hold_vertical_input_released(_vertical_input_released: bool) -> void:
+	if not _vertical_input_released or vertical_input_released_timer.time_left != 0: return
+	
+	vertical_input_released_timer.start()
+	vertical_input_released = true
